@@ -32,17 +32,41 @@ By using three variable K-Map, we can get the simplified expression for next sta
 
 The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
 
-**Procedure**
+**Procedure**<br>
+ 1.Type the program in Quartus Software.<br>
+ 2. Compile and run the program.<br>
+ 3. Generate the RTL schematic and save the logic diagram.<br>
+4. Create nodes for inputs and outputs to generate the timing diagram.<br>
+ 5. For different input combinations generate the timing diagram.<br>
 
 /* write all the steps invloved */
 
 **PROGRAM**
+```
+module exp7(J,K,clk,q,qbar);
+input J,K,clk;
+output reg q;
+output reg qbar;
+initial q=0;
+initial qbar=1;
+always @(posedge clk)
+begin
+q=((J&(~q))|((~K)&q));
+qbar=~q;
+end
+endmodule
+```
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. <br>Developed by:Rishivarman R ,br>RegisterNumber:2490419
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![Screenshot 2024-12-03 122434](https://github.com/user-attachments/assets/b823c9b0-fb08-4ad1-a34e-a33109ae01b0)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![Screenshot 2024-12-03 122523](https://github.com/user-attachments/assets/86bfbd89-5888-44c0-a69e-b2050c213e2d)
+
 
 **RESULTS**
+       To implement JK flipflop using verilog and validating their functionality using their functional tables are verified.
